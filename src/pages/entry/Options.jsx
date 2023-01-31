@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
+import Alert from "react-bootstrap/Alert";
 import ScoopOption from "./ScoopOption";
 import ToppingOption from "./ToppingOption";
 
