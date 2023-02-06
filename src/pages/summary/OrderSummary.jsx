@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
+import SummaryForm from "./SummaryForm";
+import { useOrderDetails } from "../../contexts/OrderDetails";
+import { formatCurrency } from "../../utilities";
 
 function OrderSummary(props) {
-    const [buttonDisabled, setButtonDisabled] = useState(true);
+    const { totals, optionCounts } = useOrderDetails();
 
-    const onCheckboxClick = () => {
-        setButtonDisabled(!buttonDisabled);
-    };
+    const scoopArray = Object.entries(optionCounts.scoops);
+    const scoopList = scoopArray.map(([key, value]) => (
+        <li key={key}>
+            {value} {key}
+        </li>
+    ));
+
+    const toppingArray = Object.keys(optionCounts.toppings);
+    const toppingList = toppingArray.map((key) => <li key={key}>{key}</li>);
+
     return (
         <div>
-            <input type="checkbox" name="agree" onClick={onCheckboxClick} />
-            <label>I agree to terms and conditions</label>
-            <button name="Confirm order" disabled={buttonDisabled}>
-                Confirm order
-            </button>
+            <h1>Order Summary</h1>
+            <h2>Scoops: {formatCurrency(totals.scoops)}</h2>
+            <ul>{scoopList} </ul>
+            <h2>toppings: {formatCurrency(totals.toppings)}</h2>
+            <ul>{toppingList}</ul>
+            <SummaryForm />
         </div>
     );
 }
