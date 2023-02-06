@@ -42,7 +42,7 @@ test("update topping subtotal when toppings change", async () => {
         name: "Cherries",
     });
     await user.click(cherriesCheckbox);
-    expect(toppingSubtotal).toHaveContent("1.50");
+    expect(toppingSubtotal).toHaveTextContent("1.50");
 
     const hotFudgeCheckbox = screen.getByRole("checkbox", {
         name: "Hot fudge",
