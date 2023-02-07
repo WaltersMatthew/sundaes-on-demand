@@ -1,4 +1,4 @@
-import Container from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 import OrderEntry from "./pages/entry/OrderEntry";
 import "./App.css";
 import { OrderDetailsProvider } from "./contexts/OrderDetails";

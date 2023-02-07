@@ -16,7 +16,7 @@ export function useOrderDetails() {
     return contextValue;
 }
 
-export function orderDetailsProvider(props) {
+export function OrderDetailsProvider(props) {
     const [optionCounts, setOptionCounts] = useState({
         scoops: {}, //{Chocolate: 1, Vanilla: 2 }
         toppings: {}, // example: {"Gummi Bears": 1}
