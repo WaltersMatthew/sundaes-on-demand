@@ -1,7 +1,6 @@
 import Container from "react-bootstrap";
 import OrderEntry from "./pages/entry/OrderEntry";
 import "./App.css";
-import SummaryForm from "./pages/summary/SummaryForm";
 import { OrderDetailsProvider } from "./contexts/OrderDetails";
 
 function App() {
