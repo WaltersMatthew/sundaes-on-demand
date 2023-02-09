@@ -3,7 +3,7 @@ import SummaryForm from "./SummaryForm";
 import { useOrderDetails } from "../../contexts/OrderDetails";
 import { formatCurrency } from "../../utilities";
 
-function OrderSummary(props) {
+function OrderSummary({ setOrderPhase }) {
     const { totals, optionCounts } = useOrderDetails();
 
     const scoopArray = Object.entries(optionCounts.scoops);
@@ -21,9 +21,9 @@ function OrderSummary(props) {
             <h1>Order Summary</h1>
             <h2>Scoops: {formatCurrency(totals.scoops)}</h2>
             <ul>{scoopList} </ul>
-            <h2>toppings: {formatCurrency(totals.toppings)}</h2>
+            <h2>Toppings: {formatCurrency(totals.toppings)}</h2>
             <ul>{toppingList}</ul>
-            <SummaryForm />
+            <SummaryForm setOrderPhase={setOrderPhase} />
         </div>
     );
 }
