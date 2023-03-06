@@ -1,11 +1,11 @@
 import { render } from "@testing-library/react";
-import { orderDetailsProvider } from "../contexts/OrderDetails";
+import { OrderDetailsProvider } from "../contexts/OrderDetails";
 
 const renderWithContext = (ui, options) =>
-    render(ui, { wrapper: orderDetailsProvider, ...options });
+    render(ui, { wrapper: OrderDetailsProvider, ...options });
 
-//re export everything
+// re-export everything
 export * from "@testing-library/react";
 
-//overrride rnder method
+// override render method
 export { renderWithContext as render };
