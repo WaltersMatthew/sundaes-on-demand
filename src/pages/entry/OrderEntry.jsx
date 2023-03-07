@@ -1,10 +1,14 @@
-import Button from "react-bootstrap/Button";
-import Options from "./Options";
-import { formatCurrency } from "../../utilities/index";
-import { useOrderDetails } from "../../contexts/OrderDetails";
+import Button from "react-bootstrap/Button"
+import Options from "./Options"
+import { formatCurrency } from "../../utilities/index"
+import { useOrderDetails } from "../../contexts/OrderDetails"
+import { useState } from "react"
 
 export default function OrderEntry({ setOrderPhase }) {
-    const { totals } = useOrderDetails();
+    const { totals } = useOrderDetails()
+
+    // disable order button if there aren't any scoops in the order
+    const orderDisabled = totals.scoops === 0
 
     return (
         <div>
@@ -14,9 +18,12 @@ export default function OrderEntry({ setOrderPhase }) {
             <h2>
                 Grand total: {formatCurrency(totals.scoops + totals.toppings)}
             </h2>
-            <Button onClick={() => setOrderPhase("review")}>
+            <Button
+                disabled={orderDisabled}
+                onClick={() => setOrderPhase("review")}
+            >
                 Order Sundae!
             </Button>
         </div>
-    );
+    )
 }
